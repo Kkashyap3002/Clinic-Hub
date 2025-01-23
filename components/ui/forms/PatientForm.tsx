@@ -1,26 +1,25 @@
-"use client"
+"use client";
 
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
-import { Button} from "@/components/ui/button";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import CustomFormField from "@/components/CustomFormField";
 import SubmitButton from "@/components/SubmitButton";
 import { useState } from "react";
 import { UserFormValidation } from "@/lib/validation";
+import { createUser } from "@/lib/actions/patient.actions";
 
-export enum FormFieldType{
+export enum FormFieldType {
   INPUT = "input",
-  TEXTAREA ="textarea",
+  TEXTAREA = "textarea",
   PHONE_INPUT = "phoneInput",
   CHECKBOX = "checkbox",
   DATE_PICKER = "datePicker",
   SELECT = "select",
   SKELETON = "skeleton",
 }
-
-
 
 const PatientForm = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -33,20 +32,21 @@ const PatientForm = () => {
     },
   });
 
-  async function onSubmit({name, email, phone}: z.infer<typeof UserFormValidation>) {
+  async function onSubmit({
+    name,
+    email,
+    phone,
+  }: z.infer<typeof UserFormValidation>) {
     setIsLoading(true);
 
     try {
-      // const userData ={name, email, phone};
-      // const user = await createUser(userData);
-
-      // if(user) router.push(`/patients/${user.$id}/register`)
-    }
-        catch (error) {
+      const userData ={name, email, phone};
+      const user = await createUser(userData);
+      if(user) router.push(`/patients/${user.$id}/register`)
+    } catch (error) {
       console.log(error);
     }
   }
-  
 
   return (
     <Form {...form}>
@@ -83,11 +83,9 @@ const PatientForm = () => {
           name="phone"
           label="Phone Number"
           placeholder="+91 9876543210"
-
         />
 
-        <SubmitButton isLoading={isLoading}>
-          Get Started </SubmitButton>
+        <SubmitButton isLoading={isLoading}>Get Started </SubmitButton>
       </form>
     </Form>
   );
