@@ -16,10 +16,23 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## <a name="introduction">🤖 Introduction</a>
 
+A healthcare patient management application that allows patients to easily register, book, and manage their appointments with doctors, featuring administrative tools for scheduling, confirming, and canceling appointments, along with SMS notifications, all built using Next.js.
+
+If you're getting started and need assistance or face any bugs, join our active Discord community with over **34k+** members. It's a place where people help each other out.
+
+<a href="https://discord.com/invite/n6EdbFJ" target="_blank"><img src="https://github.com/sujatagunale/EasyRead/assets/151519281/618f4872-1e10-42da-8213-1d69e486d02e" /></a>
+
+## <a name="tech-stack">⚙️ Tech Stack</a>
+
+- Next.js
+- Appwrite
+- Typescript
+- TailwindCSS
+- ShadCN
+- Twilio
 ## <a name="features">🔋 Features</a>
 
 👉 **Register as a Patient**: Users can sign up and create a personal profile as a patient.
